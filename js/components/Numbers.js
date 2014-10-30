@@ -16,7 +16,7 @@ var Numbers = React.createClass({
     render: function() {
         var self = this;
         var list = this.state.numbers.map(function(number){
-            return <li key={number}>{number} - {self.formatNumber(number, {style: 'currency', currency: 'USD'})}</li>
+            return <li key={number.value}>{number.value} - {self.formatNumber(number.value, {style: 'currency', currency: 'USD'})}</li>
         });
 
         return <ul>{list}</ul>;

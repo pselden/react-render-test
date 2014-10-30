@@ -6,16 +6,20 @@ var React = require('react'),
 
 var numbers = []
 for(var i = 0; i < 2000; ++i){
-    numbers.push(i);
+    numbers.push({value: i});
 }
 
 var App = React.createClass({
     getInitialState: function() {
-        return { locale: 'en-US' };
+        return { locale: 'en-US', clicks: 0 };
     },
 
     _onChangeLocale: function(event) {
         this.setState({locale: event.target.value});
+    },
+
+    _onClickClicked: function(){
+        this.setState({clicks: this.state.clicks + 1})
     },
 
     render: function() {
@@ -28,6 +32,10 @@ var App = React.createClass({
                     <option value="en-US">English</option>
                     <option value="fr-FR">French</option>
                 </select>
+                <div>
+                    <button onClick={this._onClickClicked}>Click Me</button>
+                    <span>Clicks: {this.state.clicks}</span>
+                </div>
                 <Numbers numbers={numbers} locales={[currentLocale]} />
             </div>
         );

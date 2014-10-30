@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     App = require('./components/App');
 
 if ('production' !== process.env.NODE_ENV) {
